@@ -1,36 +1,12 @@
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
 import type { TickTickClient } from "../ticktick/client.js";
-import type { Task } from "../ticktick/types.js";
 import { formatTask, formatTaskList } from "../ticktick/formatters.js";
-
-/** Collect all tasks from all non-closed projects */
-async function getAllTasks(client: TickTickClient): Promise<Task[]> {
-  const projects = await client.getProjects();
-  const allTasks: Task[] = [];
-  for (const project of projects) {
-    if (project.closed) continue;
-    const data = await client.getProjectWithData(project.id);
-    allTasks.push(...data.tasks);
-  }
-  return allTasks;
-}
-
-function startOfDayUTC(date: Date): Date {
-  return new Date(
-    Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate()),
-  );
-}
-
-function startOfNextDayUTC(date: Date): Date {
-  return new Date(
-    Date.UTC(
-      date.getUTCFullYear(),
-      date.getUTCMonth(),
-      date.getUTCDate() + 1,
-    ),
-  );
-}
+import {
+  getAllTasks,
+  startOfDayUTC,
+  startOfNextDayUTC,
+} from "./task-utils.js";
 
 export function registerGtdTools(
   server: McpServer,

@@ -3,36 +3,11 @@ import { z } from "zod";
 import type { TickTickClient } from "../ticktick/client.js";
 import type { Task } from "../ticktick/types.js";
 import { formatTaskList } from "../ticktick/formatters.js";
-
-/** Collect all tasks from all non-closed projects */
-async function getAllTasks(client: TickTickClient): Promise<Task[]> {
-  const projects = await client.getProjects();
-  const allTasks: Task[] = [];
-  for (const project of projects) {
-    if (project.closed) continue;
-    const data = await client.getProjectWithData(project.id);
-    allTasks.push(...data.tasks);
-  }
-  return allTasks;
-}
-
-/** Get the start of a day in UTC */
-function startOfDayUTC(date: Date): Date {
-  return new Date(
-    Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate()),
-  );
-}
-
-/** Get the start of the next day in UTC */
-function startOfNextDayUTC(date: Date): Date {
-  return new Date(
-    Date.UTC(
-      date.getUTCFullYear(),
-      date.getUTCMonth(),
-      date.getUTCDate() + 1,
-    ),
-  );
-}
+import {
+  getAllTasks,
+  startOfDayUTC,
+  startOfNextDayUTC,
+} from "./task-utils.js";
 
 /** Check if a task is due on a specific date */
 function isDueOnDate(task: Task, target: Date): boolean {
