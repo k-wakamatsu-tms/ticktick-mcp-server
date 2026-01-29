@@ -6,8 +6,12 @@
   "type": "module",
   "packageManager": "pnpm@10.28.0",
   "scripts": {
+    "biome": "biome",
     "dev": "wrangler dev",
     "deploy": "wrangler deploy",
+    "lint": "biome lint .",
+    "format": "biome format . --write",
+    "check": "biome check .",
     "test": "vitest run",
     "test:watch": "vitest",
     "types": "wrangler types"
@@ -20,6 +24,7 @@
     "zod": "^4.2.1"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.9.4",
     "@cloudflare/workers-types": "^4.20251229.0",
     "typescript": "5.9.3",
     "vitest": "^4.0.18",
