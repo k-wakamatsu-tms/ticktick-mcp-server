@@ -12,7 +12,9 @@ strictDepBuilds: true
 # - workerd: Cloudflare Workers ランタイム
 # - core-js-pure: postinstall でメッセージ表示
 # - sharp: 画像処理ライブラリのネイティブバイナリ
+# - @biomejs/biome: Biome binary
 allowBuilds:
+  '@biomejs/biome': true
   esbuild: true
   workerd: true
   core-js-pure: true
