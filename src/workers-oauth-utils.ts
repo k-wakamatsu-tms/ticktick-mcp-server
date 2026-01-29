@@ -193,7 +193,10 @@ export function renderApprovalDialog(
   scope: string,
   csrfToken: string,
   stateEncoded: string,
+  requestUrl?: string,
 ): Response {
+  // Get the origin for CSP form-action
+  const origin = requestUrl ? new URL(requestUrl).origin : "";
   const html = `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -239,7 +242,7 @@ export function renderApprovalDialog(
     headers: {
       "Content-Type": "text/html;charset=UTF-8",
       "Content-Security-Policy":
-        "default-src 'none'; style-src 'unsafe-inline'; form-action 'self'",
+        `default-src 'none'; style-src 'unsafe-inline'; form-action 'self' ${origin}`,
     },
   });
 }

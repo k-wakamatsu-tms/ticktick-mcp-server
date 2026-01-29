@@ -69,6 +69,7 @@ app.get("/authorize", async (c) => {
     oauthReqInfo.scope?.join(" ") ?? "",
     token,
     stateEncoded,
+    c.req.url,
   );
 
   response.headers.append("Set-Cookie", cookie);

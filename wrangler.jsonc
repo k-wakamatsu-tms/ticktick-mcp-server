@@ -4,17 +4,30 @@
   "compatibility_date": "2025-03-10",
   "compatibility_flags": ["nodejs_compat"],
   "migrations": [
-    { "new_sqlite_classes": ["TickTickMCP"], "tag": "v1" }
+    {
+      "new_sqlite_classes": ["TickTickMCP"],
+      "tag": "v1",
+    },
   ],
   "durable_objects": {
     "bindings": [
-      { "class_name": "TickTickMCP", "name": "MCP_OBJECT" }
-    ]
+      {
+        "class_name": "TickTickMCP",
+        "name": "MCP_OBJECT",
+      },
+    ],
   },
   "kv_namespaces": [
     // Create with: wrangler kv namespace create OAUTH_KV
-    { "binding": "OAUTH_KV", "id": "PLACEHOLDER_REPLACE_WITH_REAL_KV_ID" }
+    {
+      "binding": "OAUTH_KV",
+      "id": "8abac4fbf571496eb9176912638928ab",
+    },
   ],
-  "observability": { "enabled": true },
-  "dev": { "port": 8788 }
+  "observability": {
+    "enabled": true,
+  },
+  "dev": {
+    "port": 8788,
+  },
 }
