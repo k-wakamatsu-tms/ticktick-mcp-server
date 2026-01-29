@@ -2,6 +2,8 @@ import { describe, it, expect, vi } from "vitest";
 import {
   getUpstreamAuthorizeUrl,
   fetchUpstreamAuthToken,
+  parseAllowedLogins,
+  isLoginAllowed,
 } from "../src/utils.js";
 
 describe("getUpstreamAuthorizeUrl", () => {
@@ -112,5 +114,43 @@ describe("fetchUpstreamAuthToken", () => {
         }),
       }),
     );
+  });
+});
+
+describe("parseAllowedLogins", () => {
+  it("returns null when raw is undefined", () => {
+    expect(parseAllowedLogins(undefined)).toBeNull();
+  });
+
+  it("returns null for empty or whitespace", () => {
+    expect(parseAllowedLogins("   ")).toBeNull();
+  });
+
+  it("parses and normalizes comma-separated logins", () => {
+    expect(
+      parseAllowedLogins(" k-wakamatsu-tms , Other "),
+    ).toEqual(["k-wakamatsu-tms", "other"]);
+  });
+
+  it("returns null when all items are empty", () => {
+    expect(parseAllowedLogins(" , , ")).toBeNull();
+  });
+});
+
+describe("isLoginAllowed", () => {
+  it("denies when allowlist is unset", () => {
+    expect(isLoginAllowed("k-wakamatsu-tms", undefined)).toBe(false);
+  });
+
+  it("allows case-insensitive matches", () => {
+    expect(
+      isLoginAllowed("K-Wakamatsu-TMS", "k-wakamatsu-tms"),
+    ).toBe(true);
+  });
+
+  it("denies non-matching users", () => {
+    expect(
+      isLoginAllowed("k-wakamatsu-tms", "other"),
+    ).toBe(false);
   });
 });

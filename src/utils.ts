@@ -9,6 +9,27 @@ export type Props = {
   accessToken: string;
 };
 
+export function parseAllowedLogins(
+  raw: string | undefined,
+): string[] | null {
+  if (!raw) return null;
+  const items = raw
+    .split(",")
+    .map((item) => item.trim())
+    .filter((item) => item.length > 0)
+    .map((item) => item.toLowerCase());
+  return items.length > 0 ? items : null;
+}
+
+export function isLoginAllowed(
+  login: string,
+  raw: string | undefined,
+): boolean {
+  const allowed = parseAllowedLogins(raw);
+  if (!allowed) return false;
+  return allowed.includes(login.toLowerCase());
+}
+
 export function getUpstreamAuthorizeUrl(
   clientId: string,
   redirectUri: string,

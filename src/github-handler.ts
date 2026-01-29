@@ -8,6 +8,7 @@ import type { OAuthHelpers, AuthRequest } from "@cloudflare/workers-oauth-provid
 import {
   getUpstreamAuthorizeUrl,
   fetchUpstreamAuthToken,
+  isLoginAllowed,
   type Props,
 } from "./utils.js";
 import {
@@ -169,6 +170,14 @@ app.get("/callback", async (c) => {
     name: string | null;
     email: string | null;
   };
+
+  const allowed = isLoginAllowed(
+    user.login,
+    c.env.GITHUB_ALLOWED_LOGINS,
+  );
+  if (!allowed) {
+    return new Response("Forbidden", { status: 403 });
+  }
 
   // Complete the MCP OAuth flow
   const { redirectTo } = await c.env.OAUTH_PROVIDER.completeAuthorization({

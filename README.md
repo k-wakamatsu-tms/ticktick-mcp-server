@@ -34,6 +34,7 @@ npm install
 ```bash
 wrangler secret put GITHUB_CLIENT_ID
 wrangler secret put GITHUB_CLIENT_SECRET
+wrangler secret put GITHUB_ALLOWED_LOGINS
 wrangler secret put COOKIE_ENCRYPTION_KEY
 wrangler secret put TICKTICK_ACCESS_TOKEN
 wrangler secret put TICKTICK_CLIENT_ID
@@ -128,6 +129,7 @@ npm run dev
 |----------|---------|
 | `GITHUB_CLIENT_ID` | GitHub OAuth App client ID |
 | `GITHUB_CLIENT_SECRET` | GitHub OAuth App client secret |
+| `GITHUB_ALLOWED_LOGINS` | Comma-separated allowed GitHub usernames (unset denies all access) |
 | `COOKIE_ENCRYPTION_KEY` | Random key for cookie signing |
 | `TICKTICK_ACCESS_TOKEN` | TickTick API access token |
 | `TICKTICK_CLIENT_ID` | TickTick app client ID (for future refresh) |
