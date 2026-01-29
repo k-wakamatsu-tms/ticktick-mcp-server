@@ -1,0 +1,98 @@
+{
+  "version": 1,
+  "createdAt": "2026-01-29T16:22:00.127Z",
+  "scope": "project",
+  "operation": "change-to-agents",
+  "entries": [
+    {
+      "originalPath": "/home/w-kch/repos/ticktick-mcp-server/.agents/commands",
+      "kind": "dir",
+      "action": "create"
+    },
+    {
+      "originalPath": "/home/w-kch/repos/ticktick-mcp-server/.claude/commands",
+      "kind": "symlink",
+      "action": "create"
+    },
+    {
+      "originalPath": "/home/w-kch/repos/ticktick-mcp-server/.factory/commands",
+      "kind": "symlink",
+      "action": "create"
+    },
+    {
+      "originalPath": "/home/w-kch/repos/ticktick-mcp-server/.codex/prompts",
+      "kind": "symlink",
+      "action": "create"
+    },
+    {
+      "originalPath": "/home/w-kch/repos/ticktick-mcp-server/.opencode/commands",
+      "kind": "symlink",
+      "action": "create"
+    },
+    {
+      "originalPath": "/home/w-kch/repos/ticktick-mcp-server/.cursor/commands",
+      "kind": "symlink",
+      "action": "create"
+    },
+    {
+      "originalPath": "/home/w-kch/repos/ticktick-mcp-server/.gemini/commands",
+      "kind": "symlink",
+      "action": "create"
+    },
+    {
+      "originalPath": "/home/w-kch/repos/ticktick-mcp-server/.agents/hooks",
+      "kind": "dir",
+      "action": "create"
+    },
+    {
+      "originalPath": "/home/w-kch/repos/ticktick-mcp-server/.claude/hooks",
+      "kind": "symlink",
+      "action": "create"
+    },
+    {
+      "originalPath": "/home/w-kch/repos/ticktick-mcp-server/.factory/hooks",
+      "kind": "symlink",
+      "action": "create"
+    },
+    {
+      "originalPath": "/home/w-kch/repos/ticktick-mcp-server/.agents/skills",
+      "kind": "dir",
+      "action": "create"
+    },
+    {
+      "originalPath": "/home/w-kch/repos/ticktick-mcp-server/.claude/skills",
+      "kind": "symlink",
+      "action": "create"
+    },
+    {
+      "originalPath": "/home/w-kch/repos/ticktick-mcp-server/.factory/skills",
+      "kind": "symlink",
+      "action": "create"
+    },
+    {
+      "originalPath": "/home/w-kch/repos/ticktick-mcp-server/.codex/skills",
+      "kind": "symlink",
+      "action": "create"
+    },
+    {
+      "originalPath": "/home/w-kch/repos/ticktick-mcp-server/.opencode/skills",
+      "kind": "symlink",
+      "action": "create"
+    },
+    {
+      "originalPath": "/home/w-kch/repos/ticktick-mcp-server/.cursor/skills",
+      "kind": "symlink",
+      "action": "create"
+    },
+    {
+      "originalPath": "/home/w-kch/repos/ticktick-mcp-server/.gemini/skills",
+      "kind": "symlink",
+      "action": "create"
+    },
+    {
+      "originalPath": "/home/w-kch/repos/ticktick-mcp-server/.github/skills",
+      "kind": "symlink",
+      "action": "create"
+    }
+  ]
+}
