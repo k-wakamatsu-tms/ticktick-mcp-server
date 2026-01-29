@@ -1,0 +1,19 @@
+# ===========================================
+# pnpm セキュリティ設定
+# ref: https://creators.bengo4.com/entry/2026/01/26/080000
+# ===========================================
+
+# ライフサイクルスクリプト（postinstall等）の実行を厳格に制御
+# 許可されていないスクリプトがあるとインストール失敗
+strictDepBuilds: true
+
+# ビルドスクリプトの実行を許可するパッケージ
+# - esbuild: ネイティブバイナリのダウンロード
+# - workerd: Cloudflare Workers ランタイム
+# - core-js-pure: postinstall でメッセージ表示
+# - sharp: 画像処理ライブラリのネイティブバイナリ
+allowBuilds:
+  esbuild: true
+  workerd: true
+  core-js-pure: true
+  sharp: true

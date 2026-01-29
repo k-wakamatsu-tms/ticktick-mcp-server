@@ -18,7 +18,7 @@
 ## セットアップ
 
 ```bash
-npm install
+pnpm install
 cp .dev.vars.example .dev.vars
 # .dev.vars を編集して値を入れる
 ```
@@ -34,7 +34,7 @@ cp .dev.vars.example .dev.vars
 ### 開発サーバ
 
 ```bash
-npm run dev
+pnpm run dev
 ```
 
 - `wrangler.jsonc` の `dev.port` は 8788。
@@ -42,7 +42,7 @@ npm run dev
 ### デプロイ
 
 ```bash
-npm run deploy
+pnpm run deploy
 ```
 
 ### テスト (vitest)
@@ -50,34 +50,34 @@ npm run deploy
 全テスト:
 
 ```bash
-npm test
+pnpm test
 # (= vitest run)
 ```
 
 watch:
 
 ```bash
-npm run test:watch
+pnpm run test:watch
 ```
 
 単体テスト (ファイル指定):
 
 ```bash
-npm test -- test/client.test.ts
-npm test -- test/formatters.test.ts
+pnpm test -- test/client.test.ts
+pnpm test -- test/formatters.test.ts
 ```
 
 単体テスト (テスト名/パターン指定):
 
 ```bash
-npm test -- -t "throws on non-ok response"
-npm run test:watch -- -t "CSRF"
+pnpm test -- -t "throws on non-ok response"
+pnpm run test:watch -- -t "CSRF"
 ```
 
 組み合わせ例 (ファイル + テスト名):
 
 ```bash
-npm test -- test/client.test.ts -t "handles 204 No Content"
+pnpm test -- test/client.test.ts -t "handles 204 No Content"
 ```
 
 vitest を直接実行したい場合:
@@ -101,7 +101,7 @@ npx tsc -p tsconfig.json --noEmit
 Env 型を更新したいとき:
 
 ```bash
-npm run types
+pnpm run types
 # (= wrangler types)
 ```
 
@@ -157,7 +157,7 @@ npm run types
   - `src/tools/*` で zod 入力・戻り値の整形が一貫しているか
   - 可能なら `test/` に最小のテストを追加する
 - Env 変数を追加/変更したら:
-  - `worker-configuration.d.ts` を手で直さず、`npm run types` を実行
+  - `worker-configuration.d.ts` を手で直さず、`pnpm run types` を実行
   - `.dev.vars.example` と `README.md` の変数一覧を更新
 
 ## ルールファイル (Cursor/Copilot)
